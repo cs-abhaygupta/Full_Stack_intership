@@ -7,7 +7,7 @@ button.addEventListener("click",() => {
         alert("Hello, welcome");
     });
 
-  document.getElementById("contact").addEventListener("submit",function (event){
+  document.getElementById("contacts").addEventListener("submit",function (event){
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const message = document.getElementById("message").value;

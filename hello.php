@@ -1,6 +1,16 @@
 <?php
-echo "<h1>Hello, PHP is Working!</h1>";
-echo "<p>Welcome Abhay!</p>";
-echo "<p>Welcome to the world of PHP programming.</p>";
-echo "<p>PHP is a server-side scripting language designed for web development but also used as a general-purpose programming language.</p>";
+$conn = mysqli_connect("localhost", "root", "", "portfolio_db");
+if(!$conn){
+    die("Connection failed: " . mysqli_connect_error());
+}
+$name = $_POST['name'];
+$email = $_POST['email'];   
+$message = $_POST['message'];
+$sql = "INSERT INTO contacts(name, email, message) VALUES ('$name', '$email', '$message')";
+if (mysqli_query($conn,$sql)){
+    echo "New record created successfully";
+}
+else{
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
 ?>
